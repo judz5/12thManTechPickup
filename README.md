@@ -19,3 +19,4 @@ A Python management system for organizing pickup orders.
   - Days until salvage
   - Has the person been contacted?
   - idk some other stuff need to study the excel sheet ricardo uses and figure out everything he needs.
+  - item UPC's and serial numbers
