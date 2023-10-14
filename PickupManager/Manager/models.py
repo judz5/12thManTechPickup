@@ -18,7 +18,7 @@ class OrdType(models.Model):
 class Order(models.Model):
     name = models.CharField(max_length=100)
     datePlaced = models.DateField()
-    dateCompleted = models.DateField()
+    complete = models.BooleanField()
     cubby = models.ForeignKey(Cubby, on_delete=models.CASCADE)
     orderType = models.ForeignKey(OrdType, on_delete=models.CASCADE)
     pickupDate = models.DateField()
