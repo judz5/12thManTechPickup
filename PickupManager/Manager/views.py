@@ -16,3 +16,7 @@ def newOrder(request):
             form.save()
         return redirect(home)
     return render(request, 'newOrder.html', {"form": NewOrderForm})
+
+def viewOrders(request):
+    orders = Order.objects.all()
+    return render(request, 'viewOrders.html', {'orders': orders})

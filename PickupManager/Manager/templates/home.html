@@ -1,7 +1,50 @@
 <!DOCTYPE html>
+<html>
 
-<title>12th Man Manager</title>
+<head>
+    <title>12th Man Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
 
-<h1>Welcome to Pickup Manager</h1>
+        h1 {
+            color: #333;
+            padding: 20px;
+        }
 
-<a class="btn btn-primary" href="/newOrder">Create New Order</a>
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px solid #007BFF;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Pickup Manager</h1>
+    <div class="btn-container">
+        <a class="btn btn-primary" href="/newOrder">Create New Order</a>
+        <a class="btn btn-primary" href="/viewOrders">View Orders</a>
+    </div>
+</body>
+
+</html>

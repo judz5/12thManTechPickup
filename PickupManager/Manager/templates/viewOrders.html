@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order List</title>
+    <style>
+        /* Center the table and add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .order-container {
+            text-align: center;
+        }
+
+        .order-table {
+            border-collapse: collapse;
+            width: 80%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+
+        .order-table th,
+        .order-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .order-table th {
+            background-color: #f3f3f3;
+        }
+
+        /* Style the "Back" button */
+        .back-link {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the container for the table and button */
+        .table-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="order-container">
+        <h1>Order List</h1>
+        <div class="table-container">
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date Placed</th>
+                        <th>Complete</th>
+                        <th>Cubby</th>
+                        <th>Order Type</th>
+                        <th>Pickup Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.name }}</td>
+                        <td>{{ order.datePlaced }}</td>
+                        <td>{% if order.complete %}Yes{% else %}No{% endif %}</td>
+                        <td>{{ order.cubby }}</td>
+                        <td>{{ order.orderType }}</td>
+                        <td>{{ order.pickupDate }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a class="back-link" href="/">Back</a>
+        </div>
+    </div>
+</body>
+
+</html>
