@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Center the form and style it */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+
+        .form-container h1 {
+            color: #333;
+            padding: 5px;
+        }
+
+        .form-container form {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #f3f3f3;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Style the "Submit" button */
+        .submit-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the "Back" button */
+        .back-link {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class "form-container">
+        <h1>New Order</h1>
+        <form method="POST" action="{% url 'newOrder' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="submit-button" type="submit">Submit</button>
+            <a class="back-link" href="/">Back</a>
+        </form>
+    </div>
+</body>
+
+</html>
