@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.template import loader
 from .forms import NewOrderForm, OrderSearchForm
 from .models import Cubby, Order, OrdType
@@ -17,7 +17,7 @@ def newOrder(request):
         return redirect(home)
     return render(request, 'newOrder.html', {"form": NewOrderForm})
 
-def viewOrders(request):
+def viewOrders(request, pk):
     orders = Order.objects.all()
     searchForm = OrderSearchForm(request.GET)
 
@@ -26,5 +26,8 @@ def viewOrders(request):
         if name:
             orders = orders.filter(name__icontains=name) # case insensitive
     
+    if request.method == 'DELETE':
+        Order.objects.get(pk=request.DELETE['delete-id']).delete()
+
     return render(request, 'viewOrders.html', {'orders': orders, 'searchForm': searchForm})
 
