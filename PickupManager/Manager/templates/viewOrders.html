@@ -124,14 +124,7 @@
                     <td>{{ order.cubby }}</td>
                     <td>{{ order.orderType }}</td>
                     <td>{{ order.pickupDate }}</td>
-                    <td>
 
-                        <form method="delete">
-                            <input type="hidden" value="{{order.id}}" name="delete-id">
-                            <input type="Submit">Delete</button>
-                        </form>
-
-                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
