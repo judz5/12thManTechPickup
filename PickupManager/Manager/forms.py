@@ -10,3 +10,9 @@ class NewOrderForm(ModelForm):
             'datePlaced': forms.DateInput(attrs={'type': 'date'}),
             'pickupDate': forms.DateInput(attrs={'type': 'date'})
         }
+
+    cubby = forms.ModelChoiceField(queryset=Cubby.objects.order_by('location'))
+    
+
+class OrderSearchForm(forms.Form):
+    name = forms.CharField(label="Name to Search", max_length = 100, required=False)
