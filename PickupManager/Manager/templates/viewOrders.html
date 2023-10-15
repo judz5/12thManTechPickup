@@ -4,15 +4,48 @@
 <head>
     <title>Order List</title>
     <style>
-        /* Center the table and add some basic styling */
+        /* Center the page and style it */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+        }
+
+        /* Style the title */
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Style the search bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
         }
 
         .order-container {
@@ -52,45 +85,53 @@
         .back-link:hover {
             background-color: #0056b3;
         }
-
-        /* Style the container for the table and button */
-        .table-container {
-            margin-top: 20px;
-        }
     </style>
 </head>
 
 <body>
-    <div class="order-container">
+    <!-- Title -->
+    <div class="title">
         <h1>Order List</h1>
-        <div class="table-container">
-            <table class="order-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date Placed</th>
-                        <th>Complete</th>
-                        <th>Cubby</th>
-                        <th>Order Type</th>
-                        <th>Pickup Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
-                    <tr>
-                        <td>{{ order.name }}</td>
-                        <td>{{ order.datePlaced }}</td>
-                        <td>{% if order.complete %}Yes{% else %}No{% endif %}</td>
-                        <td>{{ order.cubby }}</td>
-                        <td>{{ order.orderType }}</td>
-                        <td>{{ order.pickupDate }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <a class="back-link" href="/">Back</a>
-        </div>
     </div>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+        <form method="GET" action="{% url 'viewOrders' %}">
+            <input type="text" name="name" class="search-input" placeholder="Search by Name">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <!-- Order List -->
+    <div class="order-container">
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date Placed</th>
+                    <th>Complete</th>
+                    <th>Cubby</th>
+                    <th>Order Type</th>
+                    <th>Pickup Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.datePlaced }}</td>
+                    <td>{% if order.complete %}Yes{% else %}No{% endif %}</td>
+                    <td>{{ order.cubby }}</td>
+                    <td>{{ order.orderType }}</td>
+                    <td>{{ order.pickupDate }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a class="back-link" href="/">Back</a>
 </body>
 
 </html>

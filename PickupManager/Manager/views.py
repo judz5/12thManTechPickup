@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.template import loader
-from .forms import NewOrderForm
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
+from .forms import NewOrderForm, OrderSearchForm
 from .models import Cubby, Order, OrdType
 
 
@@ -19,4 +21,13 @@ def newOrder(request):
 
 def viewOrders(request):
     orders = Order.objects.all()
-    return render(request, 'viewOrders.html', {'orders': orders})
+    searchForm = OrderSearchForm(request.GET)
+
+    if(searchForm.is_valid()):
+        name = searchForm.cleaned_data.get('name')
+        if name:
+            orders = orders.filter(name__icontains=name) # case insensitive
+    
+    return render(request, 'viewOrders.html', {'orders': orders, 'searchForm': searchForm})
+
+
