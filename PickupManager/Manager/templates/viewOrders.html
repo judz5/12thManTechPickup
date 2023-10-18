@@ -22,13 +22,18 @@
         /* Style the title */
         .title {
             font-size: 24px;
-            margin-bottom: 20px;
+            padding: 1px;
+        }
+
+        h1 {
+            margin-bottom: 0%;
         }
 
         /* Style the search bar */
         .search-bar {
             display: flex;
             align-items: center;
+            padding-bottom: 10px;
         }
 
         .search-input {
@@ -57,7 +62,7 @@
 
         .order-table {
             border-collapse: collapse;
-            width: 80%;
+            width: 100%;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -83,6 +88,16 @@
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
+            margin-top: 10px;
+            /* Add some margin to push it down */
+        }
+
+        .view-link {
+            text-decoration: none;
+            color: black;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
         }
 
         .back-link:hover {
@@ -128,7 +143,7 @@
                     <td>{{ order.orderType }}</td>
                     <td>{{ order.pickupDate }}</td>
                     <td>
-                        <a class="back-link" href="{% url 'order_detail' order.pk %}">View</a>
+                        <a class="view-link" href="{% url 'order_detail' order.pk %}">View</a>
                     </td>
                 </tr>
                 {% endfor %}
