@@ -6,14 +6,9 @@
 
 A Python management system for organizing pickup orders.
 
+- Django backend, with HTML/CSS Frontend. Working with SQLite to store orders. 
 
-
-### Goals
-- Have a good looking UI, easy to use, user should be able to
-  - [ ] Add new order
-  - [ ] Search Orders
-  - [ ] Remove orders
-  - [ ] View all orders in a cubby
+- Plan to switch frontend to react, and db to postgresql later.
 
 ### Use
 
@@ -21,7 +16,7 @@ To start the server use,
 
     python3 manage.py runserver
 
-Changes to DB require migrations prior to running server,
+Changes to models/DB require migrations prior to running server,
     
     python3 manage.py migrate
     
