@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order Detail</title>
+</head>
+
+<body>
+    <h1>Order Detail</h1>
+    <h2>{{ order.name }}</h2>
+    <p><strong>Date Placed:</strong> {{ order.datePlaced }}</p>
+    <p><strong>Complete:</strong> {% if order.complete %}Yes{% else %}No{% endif %}</p>
+    <p><strong>Cubby:</strong> {{ order.cubby }}</p>
+    <p><strong>Order Type:</strong> {{ order.orderType }}</p>
+    <p><strong>Pickup Date:</strong> {{ order.pickupDate }}</p>
+    <a href="{% url 'viewOrders' %}">Back to Order List</a>
+</body>
+
+</html>

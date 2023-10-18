@@ -39,7 +39,7 @@
         }
 
         .search-button {
-            background-color: #007BFF;
+            background-color: #500000;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -48,7 +48,7 @@
         }
 
         .search-button:hover {
-            background-color: #0056b3;
+            background-color: #3C0000;
         }
 
         .order-container {
@@ -79,14 +79,14 @@
         .back-link {
             text-decoration: none;
             color: #fff;
-            background-color: #007BFF;
+            background-color: #500000;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
         }
 
         .back-link:hover {
-            background-color: #0056b3;
+            background-color: #3C0000;
         }
     </style>
 </head>
@@ -127,7 +127,9 @@
                     <td>{{ order.cubby }}</td>
                     <td>{{ order.orderType }}</td>
                     <td>{{ order.pickupDate }}</td>
-
+                    <td>
+                        <a class="back-link" href="{% url 'order_detail' order.pk %}">View</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
