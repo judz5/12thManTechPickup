@@ -8,7 +8,7 @@ A Python management system for organizing pickup orders.
 
 - Django backend, with HTML/CSS Frontend. Working with SQLite to store orders. 
 
-- Plan to switch frontend to react, and db to postgresql later.
+- Plan to switch frontend to ~~react~~ vue.js, and db to postgresql later.
 
 ### Use
 
