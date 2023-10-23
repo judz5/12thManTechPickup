@@ -20,5 +20,5 @@ Changes to models/DB require migrations prior to running server,
     
     python3 manage.py migrate
 
-nic test!
+
     
