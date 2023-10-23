@@ -21,7 +21,7 @@ class Order(models.Model):
     complete = models.BooleanField()
     cubby = models.ForeignKey(Cubby, on_delete=models.CASCADE)
     orderType = models.ForeignKey(OrdType, on_delete=models.CASCADE)
-    pickupDate = models.DateField()
+    pickupDate = models.DateField(null=True)
 
     def __str__(self):
         return self.name
