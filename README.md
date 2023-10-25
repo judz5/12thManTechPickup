@@ -12,8 +12,6 @@ A Python management system for organizing pickup orders.
 
 ### Use
 
-AFTER CLONE CHANGE "Manager" folder name to "manager", ive tried changing github folder name but wont update so must be done locally, cannot run without changing.
-
 To start the server use,
 
     python3 manage.py runserver
