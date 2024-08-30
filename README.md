@@ -20,4 +20,8 @@ Changes to models/DB require migrations prior to running server,
     
     python3 manage.py migrate
 
+---
+
+![](https://github.com/judz5/12thManTechPickup/blob/main/12thMTClip.gif)
+
  
